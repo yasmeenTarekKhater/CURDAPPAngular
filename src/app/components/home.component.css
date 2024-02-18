@@ -1,0 +1,23 @@
+.headerContainer{
+    position: relative;
+    z-index: -1;
+}
+.headerContainerContent{
+    outline: 2px solid green;
+    outline-offset: 30px;
+    position: absolute;
+    top: 80%;
+    left: 24%;
+    background-color: rgba(15, 83, 26, 0.884);
+    color: white;
+    padding: 30px;
+}
+.carousel{
+    z-index: -1;
+    height: 100vh;
+    margin-top: -70px;
+}
+.carousel img{
+    height: 100vh;
+    width: 1242px;
+}

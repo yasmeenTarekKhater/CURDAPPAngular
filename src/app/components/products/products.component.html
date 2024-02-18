@@ -1,0 +1,40 @@
+<div class="mt-5">
+  <div class="container text-center">
+    <h1 class="mb-3 text-success-emphasis shadow-sm rounded-2 bg-success-subtle py-2">Our Products</h1>
+    <table class="table table-striped mt-5 border-success-subtle">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Product Image</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products" class="align-middle productRowTable">
+          <th class="my-auto ">{{ product?.id }}</th>
+          <td><img src={{product?.src}} width="90px" height="80px"/></td>
+          <td>{{ product?.name }}</td>
+          <td>{{ product?.price }} <span class="text-success">$</span></td>
+          <td>{{ product?.quantity }}</td>
+          <td>
+            <i
+              [routerLink]="['/products', product.id, 'edit']"
+              class="fs-3 mx-2 text-success bi bi-pencil-square"
+            ></i>
+            <i
+              class="fs-3 mx-2 text-danger bi bi-x-square-fill"
+              (click)="deleteProductHandler(product.id,product.name)"
+            ></i>
+            <i
+              [routerLink]="['/products', product.id]"
+              class="fs-3 mx-2 text-warning bi bi-eye-fill"
+            ></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

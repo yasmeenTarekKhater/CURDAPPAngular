@@ -1,0 +1,28 @@
+<h1 class="mb-3 mt-3 container text-center text-success-emphasis shadow-sm  py-2">Product Details</h1>
+<div class="bg-dark rounded mx-auto w-75 mt-5 p-5 text-center text-light">
+  <div class="container lh-lg" >
+    <div class="row justify-content-center align-items-center">
+      <div class="col-8 col-md-8 col-lg-5 imageDetailsContainer mb-4">
+        <img src={{product.src}} width="100%" height="260px" class="rounded-3" alt="product image">
+      </div>
+      <div class="col-8 col-md-8 col-lg-7 ">
+        <strong class="text-success">Product Name : </strong>
+        <span>{{ product?.name }}</span> <br/> 
+        <strong class="text-success">Product Price : </strong><span>{{ product?.price }} $</span> <br/>
+        <strong class="text-success">Product Quantity : </strong><span>{{ product?.quantity }}</span> 
+        <div>
+          <i class="text-warning bi bi-star-fill"></i>
+          <i class="text-warning bi bi-star-fill"></i>
+          <i class="text-warning bi bi-star-fill"></i>
+          <i class="text-warning bi bi-star"></i>
+          <i class="text-warning bi bi-star"></i>
+        </div>
+        <button (click)="backToProduct()" class="btn btn-outline-success mt-4">
+          Back To Products
+        </button>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>

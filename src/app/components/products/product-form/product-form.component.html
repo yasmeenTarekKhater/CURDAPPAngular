@@ -1,0 +1,100 @@
+<div>
+  <div class="container mt-5">
+    <div>
+      <form [formGroup]="productsForm" (submit)="formSubmition($event)" class="w-75 mx-auto">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label fw-bold">Product Name</label>
+        <input
+          type="text"
+          class="form-control border-dark-subtle"
+          name="nameValue"
+          formControlName="name"
+          aria-describedby="emailHelp"
+          placeholder="Enter Product Name"
+        />
+      </div>
+      <ng-container *ngIf="getName.touched">
+        <div
+          *ngIf="getName.hasError('required')"
+          class="form-text text-danger"
+        >
+          Product Name is Required
+        </div>
+        <div
+          *ngIf="getName.hasError('minlength')"
+          class="form-text text-danger"
+        >
+          Product Name length must be greater than 5
+        </div>
+      </ng-container>
+      <div class="mb-3 mt-2">
+        <label for="exampleInputPassword1" class="form-label fw-bold"
+          >Product Price</label
+        >
+        <input
+          type="number"
+          class="form-control border-dark-subtle"
+          name="priceValue"
+          formControlName="price"
+          placeholder="Enter Product Price"
+        />
+        <!-- <p>{{priceValue}}</p> -->
+      </div>
+      <ng-container *ngIf="getPrice.touched">
+        <div
+          *ngIf="getPrice.hasError('required')"
+          class="form-text text-danger"
+        >
+          Product Price is Required
+        </div>
+        <div
+          *ngIf="getPrice.hasError('min')"
+          class="form-text text-danger"
+        >
+          Product Price Value must be greater than 10
+        </div>
+      </ng-container>
+      <div class="mb-3 mt-2">
+        <label for="exampleInputPassword1" class="form-label fw-bold"
+          >Product Quantity</label
+        >
+        <input
+          type="number"
+          class="form-control border-dark-subtle"
+          name="quantityValue"
+          formControlName="quantity"
+          placeholder="Enter Product Price"
+        />
+      </div>
+      <ng-container *ngIf="getQuantity.touched">
+        <div
+          *ngIf="getQuantity.hasError('required')"
+          class="form-text text-danger"
+        >
+          Product Quantity is Required
+        </div>
+        <div
+          *ngIf="getQuantity.hasError('min')"
+          class="form-text text-danger"
+        >
+          Product Price Value must be greater than or Equal 1
+        </div>
+      </ng-container>
+      <div class="mb-3 mt-2">
+        <label for="exampleInputPassword1" class="form-label fw-bold"
+          >Product Image</label
+        >
+        <input
+          type="file"
+          class="form-control border-dark-subtle"
+          name="imageValue"
+          (change)="onFileSelected($event)"
+          placeholder="Enter Product Price"
+        />
+      </div>   
+      <p *ngIf="flag" class="fw-bold text-danger mt-2"> *All Feilds are required</p>
+      <button type="submit" class="btn btn-success me-3 mt-3" >{{productId==0?'Add Product':'Update Product'}}</button>
+      </form>
+    </div>
+  </div>
+</div>
